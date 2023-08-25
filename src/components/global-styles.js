@@ -7,7 +7,8 @@ const GlobalStylesStyled = createGlobalStyle`
         --black: #141414; 
         --grey: #8b949e; 
         --bg: #0d1117; 
-        --button: #22262c; 
+        --bg-button: #22262c; 
+        --bg-button-2: #2E3238; 
         --grey-2: #c5ced7; 
         --pink: #cc68a0; 
         --yellow: #f1e05a; 

@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import props from './profile-data'
+import Button from './button'
 
 const ProfileStyled = styled.div`
     grid-area: profile;
@@ -38,33 +40,45 @@ const ProfileStyled = styled.div`
         gap: .5rem;
         margin-block-end: 1.5rem;
     }
+
+    .custom{
+
+    }
 `
 
 function Profile() {
+    const { name, login, avatar_url, bio, followers, following, location, blog, twitter_username } = props
     return (
         <ProfileStyled>
-            <img src="" className="avatar" width="278" height="278" alt="" />
-            <p className="name">Mauricio Laratro</p>
-            <p className="username">MauricioLaratro</p>
+            <img src={avatar_url} className="avatar" width="278" height="278" alt="" />
+            <p className="name">{name}</p>
+            <p className="username">{login}</p>
             <div className="buttons">
-                <button>follow</button>
-                <button>sponsors</button>
+                <Button 
+                    text="Follow"
+                    link="#"
+                    className="custom"
+                />
+                <Button 
+                    text="Sponsor"
+                    icon={<i>♥</i>}
+                    className="default"
+                />
             </div>
-            <p className="bio info">Mauricio Javier Laratro<br />Front-end Developer, 26 años<br />Posadas, Misiones, Argentina.</p>
-            <p className="followers info">
-            <span>•</span> 10 <span>followers</span> <span>•</span> 15 <span>following</span>
+            <p className="bio info">
+                {bio}
             </p>
-            <p className="stars info">
-                • 81
+            <p className="followers info">
+            <span>•</span> {followers} <span>followers</span> <span>•</span> {following} <span>following</span>
             </p>
             <p className="location info">
-                • Argentina
+                • {location}
             </p>
-            <a className="info" href="https://singularityweb.net/" target="_blank" rel="noreferrer">
-                singularityweb
+            <a className="info" href={blog} target="_blank" rel="noreferrer">
+                {blog}
             </a>
-            <a className="info" href="https://www.linkedin.com/in/mauriciojavierlaratro" target="_blank" rel="noreferrer">
-                linkedin/mauriciojavierlaratro
+            <a className="info" href={`https://www.linkedin.com/in/${twitter_username}`} target="_blank" rel="noreferrer">
+                linkedin/{twitter_username}
             </a>
         </ProfileStyled>
     )
