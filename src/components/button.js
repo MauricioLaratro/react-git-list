@@ -15,6 +15,7 @@ const ButtonStyled = styled.button`
     min-inline-size: 135px;
     padding-block: .25rem;
     font: var(--button);
+    transition: .2s ease-in-out;
     &:hover{
         background: var(--bg-button-2);
         border: 1px solid var(--grey);

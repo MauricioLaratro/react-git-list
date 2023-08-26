@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import props from './profile-data'
 import Button from './button'
+import Icon from './icon'
 
 const ProfileStyled = styled.div`
     grid-area: profile;
@@ -41,8 +42,11 @@ const ProfileStyled = styled.div`
         margin-block-end: 1.5rem;
     }
 
-    .custom{
-
+    .custom svg{
+        transition: .2s ease-in-out;
+    }
+    .custom:hover svg{
+        fill: var(--pink);
     }
 `
 
@@ -57,12 +61,15 @@ function Profile() {
                 <Button 
                     text="Follow"
                     link="#"
-                    className="custom"
                 />
                 <Button 
+                    className="custom"
                     text="Sponsor"
-                    icon={<i>♥</i>}
-                    className="default"
+                    icon={<Icon 
+                        name="heart"
+                        size={24}
+                        color="white"
+                    />}
                 />
             </div>
             <p className="bio info">
