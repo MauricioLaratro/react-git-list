@@ -5,6 +5,8 @@ import Filters from './components/filters';
 import RepoList from './components/repo-list';
 import Search from './components/search';
 import repoData from './components/repo-data';
+import { useState, useEffect } from 'react'
+import { getUser, getRepos } from './services/users';
 
 // const repoList = [
 //   {
@@ -18,11 +20,33 @@ import repoData from './components/repo-data';
 // ]
 
 function App() {
+  const [user, setUser] = useState({})
+  const [repos, setRepos] = useState([])
+  useEffect(() =>{
+    getUser('mauriciolaratro').then(({ data, isError }) =>{
+      if(isError) {
+        console.log('No hemos encontrado el usuario!')
+        return
+      }
+      setUser(data)
+    })
+    
+}, [])
+  useEffect(() =>{
+    getRepos('mauriciolaratro').then(({ data, isError }) =>{
+      if(isError) {
+        console.log('No hemos encontrado los repos!')
+      return
+      }
+      setRepos(data)
+    })
+
+}, [])
   return (
     <Layout>
-      <Profile />
+      <Profile {...user}/>
       <Filters />
-      <RepoList repoList={repoData} />
+      <RepoList repoList={repos} />
       <Search />
     </Layout>
   )
