@@ -39,8 +39,6 @@ function App() {
       setUser(data)
     })
     
-}, [])
-  useEffect(() =>{
     getRepos(username).then(({ data, isError }) =>{
       if(isError) {
         console.log('No hemos encontrado los repos!')
@@ -49,7 +47,7 @@ function App() {
       setRepos(data)
     })
 
-}, [])
+}, [username])
   return (
     <Layout>
       <Profile {...user}/>
