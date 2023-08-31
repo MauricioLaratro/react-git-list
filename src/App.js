@@ -4,9 +4,11 @@ import Profile from './components/profile';
 import Filters from './components/filters';
 import RepoList from './components/repo-list';
 import Search from './components/search';
-import repoData from './components/repo-data';
+// import repoData from './components/repo-data';
 import { useState, useEffect } from 'react'
 import { getUser, getRepos } from './services/users';
+import { useParams } from 'react-router-dom';
+
 
 // const repoList = [
 //   {
@@ -19,11 +21,17 @@ import { getUser, getRepos } from './services/users';
 //   },
 // ]
 
+// al utilizar useParams de la dependencia react-router-dom establecemos que username es el user que se devuelve dentro del objeto que brinda useParams. Luego decimos que si no establecemos ningun username como /leonidasesteban por ejemplo, el user default sea el mio 'mauriciolaratro' de lo contrario se mostraria la app sin informacion de ningun usarios al iniciarla y mostrar la ruta '/'.
 function App() {
+  const params = useParams()
+  let username = params.user
+  if (!username) {
+    username = 'mauriciolaratro'
+  }
   const [user, setUser] = useState({})
   const [repos, setRepos] = useState([])
   useEffect(() =>{
-    getUser('mauriciolaratro').then(({ data, isError }) =>{
+    getUser(username).then(({ data, isError }) =>{
       if(isError) {
         console.log('No hemos encontrado el usuario!')
         return
@@ -33,7 +41,7 @@ function App() {
     
 }, [])
   useEffect(() =>{
-    getRepos('mauriciolaratro').then(({ data, isError }) =>{
+    getRepos(username).then(({ data, isError }) =>{
       if(isError) {
         console.log('No hemos encontrado los repos!')
       return
