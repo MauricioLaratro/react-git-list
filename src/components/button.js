@@ -15,7 +15,7 @@ const ButtonStyled = styled.button`
     min-inline-size: 135px;
     padding-block: .25rem;
     font: var(--button);
-    transition: .2s ease-in-out;
+    transition: .2s ease;
     &:hover{
         background: var(--bg-button-2);
         border: 1px solid var(--grey);
@@ -37,5 +37,14 @@ function Button({ text, link, className, icon }) {
         </ButtonStyled>
     )
 }
+
+export const ButtonContrast = styled(Button)`
+    background: var(--white);
+    color: var(--bg-button);
+    &:hover{
+        background: var(--bg-button);
+        color: var(--white);
+    }
+`
 
 export default Button
