@@ -15,11 +15,11 @@ const LanguageStyled = styled.div`
 `
 
 const languages = {
-    ruby: {
-        color: 'red'
+    html: {
+        color: 'orange'
     },
     css: {
-        color: 'green'
+        color: 'purple'
     },
     javascript: {
         color: 'yellow'
