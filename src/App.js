@@ -8,6 +8,9 @@ import Search from './components/search';
 import { useState, useEffect } from 'react'
 import { getUser, getRepos } from './services/users';
 import { useParams } from 'react-router-dom';
+import Modal from './components/modal'
+
+// import PortalExample from './components/portal-test';
 
 
 // const repoList = [
@@ -30,6 +33,7 @@ function App() {
   }
   const [user, setUser] = useState({})
   const [repos, setRepos] = useState([])
+  const [showmodal, setShowModal] = useState(false)
   useEffect(() =>{
     getUser(username).then(({ data, isError }) =>{
       if(isError) {
@@ -50,10 +54,14 @@ function App() {
 }, [username])
   return (
     <Layout>
+      <Modal isActive={showmodal} setShowModal={setShowModal}/>
+      {/* <div className="clipping-container">
+        <PortalExample />
+      </div> */}
       <Profile {...user}/>
       <Filters />
       <RepoList repoList={repos} />
-      <Search />
+      <Search setShowModal={setShowModal} />
     </Layout>
   )
 }

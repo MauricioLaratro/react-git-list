@@ -1,33 +1,43 @@
-import React ,{ useRef, useState } from "react"
+import React ,{ useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import Overlay from "./overlay"
 import styled from 'styled-components'
 import { ButtonContrast } from "./button"
 import  InputText  from './input-text'
+import  ReactDOM  from 'react-dom'
+
+import ButtonClose from "./button-close"
+import Icon from './icon'
 
 
-// class Modal  extends React.Component{
-//     constructor(props) {
-//         super(props)
-//     }
-//     state = {}
-//     componentDidUpdate() {
+const modalRoot = document.getElementById('portal')
+class ModalPortal  extends React.Component{
+    constructor(props) {
+        super(props)
+        this.el = document.createElement('div')
+    }
+    componentWillUnmount() {
+        modalRoot.removeChild(this.el)
+    }
+    componentDidMount(){
+        modalRoot.appendChild(this.el)
+    }
+    render (){
+        return ReactDOM.createPortal(this.props.children, this.el)
 
-//     }
-//     componentWillUnmount() {
+    }
+}
 
-//     }
-//     componentDidMount(){
-//         this.setState({
-            
-//         })
-//     }
-//     render (){
-//         return (
-
-//         )
-//     }
-// }
+export default function Modal({ isActive, setShowModal }) {
+    if (isActive) {
+        return (
+            <ModalPortal>
+                <ModalContent setShowModal={setShowModal}/>
+            </ModalPortal>
+        )
+    }
+    return null
+}
 
 
 const ModalContentStyled = styled.form`
@@ -53,26 +63,27 @@ const ModalContentStyled = styled.form`
 `
 
 
-function ModalContent () {
+function ModalContent ({ setShowModal }) {
     const form = useRef(null)
     const navigator = useNavigate()
 
-    // const [isActive, setIsActive] = useState(true)
-
     function handleSubmit(event) {
         event.preventDefault()
-        // setIsActive(false)
+        
         const fromData = new FormData(form.current)
         navigator(`/${(fromData.get('username'))}`)
+        setShowModal(false)
 
+    }
+
+    function handleClick() {
+        setShowModal(false)
     }
 
     return (
         <Overlay>
-            {/* {
-                isActive ? <ModalContentStyled /> : null
-            } */}
             <ModalContentStyled ref={form} action="" onSubmit={handleSubmit}>
+                <ButtonClose type="button" onClick={handleClick} icon={<Icon name="cancel" size={20}/>}/>
                 <h2 className="title">Busca cualquier usuario</h2>
                 <InputText type="text" name="username" placeholder="Username" />
                 <ButtonContrast text="Buscar" />
@@ -81,5 +92,3 @@ function ModalContent () {
     )
 
 }
-
-export default ModalContent

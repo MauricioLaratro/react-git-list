@@ -46,5 +46,32 @@ export const ButtonContrast = styled(Button)`
         color: var(--white);
     }
 `
+export const ButtonRounded = styled(Button)`
+    min-inline-size: initial;
+    border-radius: 50%;
+    padding: .75rem;
+    border: 2px solid var(--grey-2);
+    &:hover{
+        background: var(--bg-button);
+        border: 2px solid var(--grey-2);
+        transform: scale(1.1);
+    }
+`
+// export const ButtonClose = styled(Button)`
+//     margin: 0;
+//     align-self: flex-end;
+//     min-inline-size: 0;
+//     inline-size: 1.5rem;
+//     block-size: 1.5rem;
+//     border-radius: .25rem;
+//     padding: 0;
+//     border: 2px solid var(--grey-2);
+//     color: white;
+//     &:hover{
+//         background: var(--bg-button);
+//         border: 2px solid var(--grey-2);
+//         transform: scale(1.1);
+//     }
+// `
 
 export default Button

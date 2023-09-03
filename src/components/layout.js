@@ -5,9 +5,9 @@ const LayoutStyled = styled.main`
     margin: auto;
     max-inline-size: 75rem;
     padding-inline: 20px;
+    padding-block: 2.5rem;
     @media screen and (min-width: 768px) {
         display: grid;
-        border: 1px solid red;
         grid-template-columns: 278px 1fr;
         grid-template-rows: auto 1fr;
         column-gap: 2rem;

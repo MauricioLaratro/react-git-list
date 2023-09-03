@@ -1,13 +1,20 @@
 import styled from 'styled-components'
+import { ButtonRounded } from './button'
+import Icon from './icon'
 
 const SearchStyled = styled.div`
-    background-color: purple;
+    position: fixed;
+    inset-inline-end: 1.5rem;
+    inset-block-end: 1.5rem;
 `
 
-function Search() {
+function Search({ setShowModal }) {
+    function handleClick() {
+        setShowModal(true)
+    }
     return (
-        <SearchStyled>
-            Search
+        <SearchStyled onClick={handleClick}>
+            <ButtonRounded icon={<Icon name="search" size={24} />}/>
         </SearchStyled>
     )
 }
