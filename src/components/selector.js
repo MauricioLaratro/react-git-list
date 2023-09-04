@@ -8,7 +8,7 @@ const SelectorStyled = styled.select`
     color: var(--white);
     padding-inline: 1rem;
     font: var(--body2-semi-bold);
-
+    cursor: pointer;
     /* appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none; */
@@ -18,10 +18,14 @@ const SelectorStyled = styled.select`
     }
 `
 
-function Selector({ children }) {
+function Selector( props ) {
+    const changeSelection = (event) => {           
+        if (props.changeSelection)
+            props.changeSelection(event);
+    }
     return (
-        <SelectorStyled>
-            {children}
+        <SelectorStyled onChange={changeSelection}>
+            {props.children}
         </SelectorStyled>
     )
 }

@@ -35,6 +35,7 @@ function App() {
   const [repos, setRepos] = useState([])
   const [showmodal, setShowModal] = useState(false)
   const [search, setSearch] = useState('')
+  const [selectedLanguage, setSelectedLanguage] = useState('all')
   useEffect(() =>{
     getUser(username).then(({ data, isError }) =>{
       if(isError) {
@@ -51,8 +52,8 @@ function App() {
       }
       setRepos(data)
     })
-
 }, [username])
+
   return (
     <Layout>
       <Modal isActive={showmodal} setShowModal={setShowModal}/>
@@ -60,8 +61,8 @@ function App() {
         <PortalExample />
       </div> */}
       <Profile {...user}/>
-      <Filters setSearch={setSearch} repoListCount={repos.length}/>
-      <RepoList search={search} repoList={repos} />
+      <Filters setSearch={setSearch} repoListCount={repos.length} setSelectedLanguage={setSelectedLanguage} />
+      <RepoList search={search} repoList={repos} selectedLanguage={selectedLanguage} />
       <Search setShowModal={setShowModal} />
     </Layout>
   )

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import RepoItem from './repo-item'
-
+import NoRepositories from './no-repositories'
 
 const RepoListStyled = styled.div`
     grid-area: repo-list;
@@ -10,7 +10,7 @@ const RepoListStyled = styled.div`
 
 `
 
-function RepoList({ repoList, search }) {
+function RepoList({ repoList, search, selectedLanguage }) {
     let list = [...repoList]; // Hacemos una copia de la lista para no modificar la original
 
     // Agregamos esta función para ordenar por fecha de creación (created_at)
@@ -21,6 +21,19 @@ function RepoList({ repoList, search }) {
             return item.name.search(search) >= 0
         })
     }
+    if (selectedLanguage && selectedLanguage !== '' && selectedLanguage !== 'all') {
+        list = list.filter((item) => {
+            if (item.language) {
+                return item.language.toUpperCase() === selectedLanguage.toUpperCase();
+            }
+            return false;
+        })
+    }
+
+    if (list.length === 0)
+    return (<NoRepositories />)
+    else
+    
     return (
         <RepoListStyled>
             {list.map((item) =>{
