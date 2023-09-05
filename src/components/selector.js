@@ -14,7 +14,7 @@ const SelectorStyled = styled.select`
     -moz-appearance: none; */
 
     &:focus{
-        background: #4F545A;
+        background: var(--bg-selector);
     }
 `
 

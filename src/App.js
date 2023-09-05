@@ -10,6 +10,10 @@ import { getUser, getRepos } from './services/users';
 import { useParams } from 'react-router-dom';
 import Modal from './components/modal'
 
+import ThemeSwitchStyled from './components/theme-switch';
+import GlobalStylesStyled from './components/global-styles';
+
+
 // import PortalExample from './components/portal-test';
 
 
@@ -25,7 +29,11 @@ import Modal from './components/modal'
 // ]
 
 // al utilizar useParams de la dependencia react-router-dom establecemos que username es el user que se devuelve dentro del objeto que brinda useParams. Luego decimos que si no establecemos ningun username como /leonidasesteban por ejemplo, el user default sea el mio 'mauriciolaratro' de lo contrario se mostraria la app sin informacion de ningun usarios al iniciarla y mostrar la ruta '/'.
+
+
 function App() {
+
+
   const params = useParams()
   let username = params.user
   if (!username) {
@@ -55,16 +63,17 @@ function App() {
 }, [username])
 
   return (
-    <Layout>
-      <Modal isActive={showmodal} setShowModal={setShowModal}/>
-      {/* <div className="clipping-container">
-        <PortalExample />
-      </div> */}
-      <Profile {...user}/>
-      <Filters setSearch={setSearch} repoListCount={repos.length} setSelectedLanguage={setSelectedLanguage} />
-      <RepoList search={search} repoList={repos} selectedLanguage={selectedLanguage} />
-      <Search setShowModal={setShowModal} />
-    </Layout>
+      <Layout>
+        <ThemeSwitchStyled />
+        <Modal isActive={showmodal} setShowModal={setShowModal}/>
+        {/* <div className="clipping-container">
+          <PortalExample />
+        </div> */}
+        <Profile {...user}/>
+        <Filters setSearch={setSearch} repoListCount={repos.length} setSelectedLanguage={setSelectedLanguage} />
+        <RepoList search={search} repoList={repos} selectedLanguage={selectedLanguage} />
+        <Search setShowModal={setShowModal} />
+      </Layout>
   )
 }
 

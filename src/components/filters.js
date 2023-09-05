@@ -21,10 +21,13 @@ const FiltersStyled = styled.div`
         gap: .5rem;
     }
     .filter-title {
-        color: var(--grey-2);
+        color: var(--grey);
+    }
+    optgroup{
+        background: var(--grey-2)  
     }
     optgroup>option{
-        color: var(--white);   
+        color: var(--black);   
     }
 `
 

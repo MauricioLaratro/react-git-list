@@ -24,7 +24,7 @@ const ProfileStyled = styled.div`
         margin-block-end: 1.5rem;
     }
     .info{
-        color: var(--grey-2);
+        color: var(--grey);
         text-decoration: none;
         display: flex;
         align-items: center;

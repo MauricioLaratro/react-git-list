@@ -38,7 +38,7 @@ const RepoItemStyled = styled.div`
     .topicItem{
         font: var(--caption-medium);
         color: var(--primary);
-        background: #15223A;
+        background: var(--bg-topic);
         padding-inline: .75rem;
         padding-block: .25rem;
         border-radius: 2rem;
@@ -53,7 +53,7 @@ const RepoItemStyled = styled.div`
         display: flex;
         gap: .5rem;
         align-items: center;
-        color: var(--grey-2);
+        color: var(--grey);
         & span::first-letter {
             text-transform: uppercase;
         }

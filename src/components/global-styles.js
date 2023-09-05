@@ -8,7 +8,9 @@ const GlobalStylesStyled = createGlobalStyle`
         --grey: #8b949e; 
         --bg: #0d1117; 
         --bg-button: #22262c; 
-        --bg-button-2: #2E3238; 
+        --bg-button-2: #2E3238;
+        --bg-topic: #15223A; 
+        --bg-selector: #4F545A;
         --grey-2: #c5ced7; 
         --pink: #cc68a0; 
         --yellow: #f1e05a; 
