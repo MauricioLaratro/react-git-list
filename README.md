@@ -13,4 +13,4 @@
         • CSS
         
 •   Ver el pryecto en producción: https://react-git-list.vercel.app/
-<img src="./src/components/screencapture-react-git-list.png">
+<img src="[./src/components/screencapture-react-git-list.png](https://github.com/MauricioLaratro/react-git-list/blob/master/src/components/icon/screencapture-react-git-list.png?raw=true)https://github.com/MauricioLaratro/react-git-list/blob/master/src/components/icon/screencapture-react-git-list.png?raw=true">
