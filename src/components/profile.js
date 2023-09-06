@@ -48,15 +48,31 @@ const ProfileStyled = styled.div`
     .custom:hover svg{
         fill: var(--pink);
     }
+    @media screen and (max-width: 768px){
+        max-inline-size: 100vw;
+        .avatar{
+            inline-size: 6rem;
+            block-size: 6rem;
+        }
+        .user-info{
+            display: flex;
+            gap: 1rem;
+            align-items: center
+        }
+    }
 `
 
 function Profile(props) {
-    const { name, login, avatar_url, bio, followers, following, location, blog, twitter_username } = props
+    const { name, login, avatar_url, bio, followers, following, location, blog } = props
     return (
         <ProfileStyled>
-            <img src={avatar_url} className="avatar" width="278" height="278" alt="" />
-            <p className="name">{name}</p>
-            <p className="username">{login}</p>
+            <div className='user-info'>
+                <img src={avatar_url} className="avatar" width="278" height="278" alt="" />
+                <div className='user-data'>
+                    <p className="name">{name}</p>
+                    <p className="username">{login}</p>
+                </div>
+            </div>
             <div className="buttons">
                 <Button 
                     text="Follow"
@@ -76,17 +92,11 @@ function Profile(props) {
                 {bio}
             </p>
             <p className="followers info">
-            <span>•</span> {followers} <span>followers</span> <span>•</span> {following} <span>following</span>
+            <Icon name="user" color="var(--white)"/> {followers} <span>followers</span> <span>•</span> {following} <span>following</span>
             </p>
             <p className="location info">
-                • {location}
+            <Icon name="location" color="var(--white)"/> {location}
             </p>
-            <a className="info" href={blog} target="_blank" rel="noreferrer">
-                {blog}
-            </a>
-            <a className="info" href={`https://www.linkedin.com/in/${twitter_username}`} target="_blank" rel="noreferrer">
-                linkedin/{twitter_username}
-            </a>
         </ProfileStyled>
     )
 }

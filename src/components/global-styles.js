@@ -33,6 +33,7 @@ const GlobalStylesStyled = createGlobalStyle`
         font: var(--body1-regular);
         margin: 0;
     }
+
 `
 
 

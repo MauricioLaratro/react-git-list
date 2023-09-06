@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 
 const ThemeSwitchStyled = styled.div`
-    position: absolute;
-    inset-block-start: 4rem;
-    inset-inline-end: 1.5rem;
+  position: absolute;
+  inset-block-start: 4rem;
+  inset-inline-end: 1.5rem;
 
-    .switch {
+  .switch {
   font-size: 17px;
   position: relative;
   display: inline-block;
@@ -56,6 +56,10 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(100%);
   box-shadow: inset 15px -4px 0px 15px #fff000;
+}
+
+@media screen and (max-width: 480px){
+  inset-inline-end: 0;
 }
 `
 

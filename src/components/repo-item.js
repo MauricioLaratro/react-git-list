@@ -59,6 +59,12 @@ const RepoItemStyled = styled.div`
         }
     }
 
+    @media screen and (max-width: 480px){
+        .topicList .topicItem:nth-child(n+6){
+            display: none;
+        }
+    }
+
 `
 
 function RepoItem(props) {

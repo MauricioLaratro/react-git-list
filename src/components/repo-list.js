@@ -8,6 +8,9 @@ const RepoListStyled = styled.div`
     flex-direction: column;
     gap: 2rem;
 
+    @media screen and (max-width: 480px){
+        max-inline-size: 100vw;
+    }
 `
 
 function RepoList({ repoList, search, selectedLanguage }) {

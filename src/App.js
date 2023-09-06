@@ -11,7 +11,6 @@ import { useParams } from 'react-router-dom';
 import Modal from './components/modal'
 
 import ThemeSwitchStyled from './components/theme-switch';
-import GlobalStylesStyled from './components/global-styles';
 
 
 // import PortalExample from './components/portal-test';

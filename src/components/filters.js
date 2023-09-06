@@ -29,6 +29,23 @@ const FiltersStyled = styled.div`
     optgroup>option{
         color: var(--black);   
     }
+
+    @media screen and (max-width: 768px){
+        .action-list{
+            flex-direction: column;
+            max-inline-size: 100vw;
+        }
+        .select-list{
+            margin-block-end: 2.5rem;
+            block-size: 2.5rem;
+
+        }
+    }
+    @media screen and (max-width: 480px){
+        .select-list select{
+            max-inline-size: 140px;
+        }
+    }
 `
 
 function Filters({ repoListCount, setSearch, setSelectedLanguage}) {
