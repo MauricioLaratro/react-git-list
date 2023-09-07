@@ -9,11 +9,8 @@ import { useState, useEffect } from 'react'
 import { getUser, getRepos } from './services/users';
 import { useParams } from 'react-router-dom';
 import Modal from './components/modal'
-
 import ThemeSwitchStyled from './components/theme-switch';
 
-
-// import PortalExample from './components/portal-test';
 
 
 // const repoList = [
@@ -65,9 +62,6 @@ function App() {
       <Layout>
         <ThemeSwitchStyled />
         <Modal isActive={showmodal} setShowModal={setShowModal}/>
-        {/* <div className="clipping-container">
-          <PortalExample />
-        </div> */}
         <Profile {...user}/>
         <Filters setSearch={setSearch} repoListCount={repos.length} setSelectedLanguage={setSelectedLanguage} />
         <RepoList search={search} repoList={repos} selectedLanguage={selectedLanguage} />
